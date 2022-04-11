@@ -41,6 +41,7 @@ namespace MovieWebApp.Controllers
                 Movie newMovie = new Movie();
                 newMovie.Name = model.Name;
                 newMovie.Description = model.Description;
+                newMovie.MovieImage = model.MovieImage;
                 _context.Add(newMovie);
                 await _context.SaveChangesAsync();
 
@@ -61,13 +62,72 @@ namespace MovieWebApp.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Edit()
+        public async Task<IActionResult> Edit(int id)
         {
-            MovieViewModel movie = new MovieViewModel();
+
+            var movie = await _context.Movies.SingleOrDefaultAsync(x => x.Id == id);
+            MovieViewModel model = new MovieViewModel();
+
+            if (movie != null)
+            {
+
+                model.Id = movie.Id;
+                model.Name = movie.Name;
+                model.Description = movie.Description;
+                model.MovieImage = movie.MovieImage;
+                model.Genres = _context.Genres.Select(x => new SelectListItem { Text = x.Name, Value = x.Id.ToString() }).ToList();
+                model.People = _context.People.Select(x => new SelectListItem { Text = x.FullName, Value = x.Id.ToString() }).ToList();
+            }
+                return View(model);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(MovieViewModel movie)
+        {
             movie.Genres = _context.Genres.Select(x => new SelectListItem { Text = x.Name, Value = x.Id.ToString() }).ToList();
             movie.People = _context.People.Select(x => new SelectListItem { Text = x.FullName, Value = x.Id.ToString() }).ToList();
+            var model = await _context.Movies.SingleOrDefaultAsync(x => x.Id == movie.Id);
+            if (model != null)
+            {
+                model.Name = movie.Name;
+                model.Description = movie.Description;
+                model.MovieImage = movie.MovieImage;
+                await _context.SaveChangesAsync();
+                return RedirectToAction("Index");
+               }
+            return View(model);
+        }
+
+        public async Task<IActionResult> Delete(int id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var movie = await _context.Movies
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (movie == null)
+            {
+                return NotFound();
+            }
+
             return View(movie);
         }
 
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            var movie = await _context.Movies.FindAsync(id);
+            _context.Movies.Remove(movie);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+
+        private bool ProductExists(int id)
+        {
+            return _context.Movies.Any(e => e.Id == id);
+        }
     }
 }

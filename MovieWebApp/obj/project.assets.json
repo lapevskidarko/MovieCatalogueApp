@@ -9864,11 +9864,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\FINKI\\Finki VIII semestar\\Integrirani sistemi\\MovieApp\\MovieWebApp\\MovieWebApp.csproj",
+      "projectUniqueName": "D:\\SoproInternship\\MovieCatalogueApp\\MovieWebApp\\MovieWebApp.csproj",
       "projectName": "MovieWebApp",
-      "projectPath": "D:\\FINKI\\Finki VIII semestar\\Integrirani sistemi\\MovieApp\\MovieWebApp\\MovieWebApp.csproj",
+      "projectPath": "D:\\SoproInternship\\MovieCatalogueApp\\MovieWebApp\\MovieWebApp.csproj",
       "packagesPath": "C:\\Users\\Darko\\.nuget\\packages\\",
-      "outputPath": "D:\\FINKI\\Finki VIII semestar\\Integrirani sistemi\\MovieApp\\MovieWebApp\\obj\\",
+      "outputPath": "D:\\SoproInternship\\MovieCatalogueApp\\MovieWebApp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Darko\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "CsplQ6uESeXxLoaCJPWL2uNgl6GvE8bBu51LbRnhfAINiGTk5drtAF9EmleBeGJUVwui0uT2Ctor92UWmwMEUQ==",
+  "dgSpecHash": "lJU9Vdo/xqL+wjAjSsW6FlNTHZobIQQ+Td1DKiwFZQoaOMaOKlQqIPJ6SpIz6wAsgPtgp7uA/nA8/zWC/9mLDw==",
   "success": true,
-  "projectFilePath": "D:\\FINKI\\Finki VIII semestar\\Integrirani sistemi\\MovieApp\\MovieWebApp\\MovieWebApp.csproj",
+  "projectFilePath": "D:\\SoproInternship\\MovieCatalogueApp\\MovieWebApp\\MovieWebApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Darko\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Darko\\.nuget\\packages\\messagepack\\2.1.152\\messagepack.2.1.152.nupkg.sha512",
